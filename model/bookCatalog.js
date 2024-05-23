@@ -20,4 +20,4 @@ const bookCatalogSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose("bookCatalog", bookCatalogSchema);
+module.exports = mongoose.model("bookCatalog", bookCatalogSchema);
