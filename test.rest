@@ -1,0 +1,31 @@
+###
+
+GET http://localhost:3000/bookStack
+
+
+###
+
+GET http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
+###
+
+PATCH http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
+Content-Type: application/json
+
+{
+    "title": "The Hitchhiker's Guide to the Galaxy (Updated Edition)"
+}
+
+###
+
+DELETE http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
+
+###
+
+POST http://localhost:3000/bookStack
+Content-Type: application/json
+
+{
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "Historical Fiction"
+}
