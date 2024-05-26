@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const bookCatalog = require('../model/bookCatalog')
+const bookCatalog = require('../model/bookCatalog',serverSelectionTimeoutMS=20000)
 
 // Display the all the books details
 router.get('/', async (req,res) =>{
