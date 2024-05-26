@@ -5,10 +5,10 @@ GET http://localhost:3000/bookStack
 
 ###
 
-GET http://localhost:3000/bookStack/6651da44848bf6704861fd8e
+GET http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
 ###
 
-PATCH http://localhost:3000/bookStack/6651da44848bf6704861fd8e
+PATCH http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/bookStack/6651d86f1e9aac8bcfc2d9fb
+DELETE http://localhost:3000/bookStack/6652a81f5ebb94732e850fdc
 
 ###
 
@@ -25,8 +25,7 @@ POST http://localhost:3000/bookStack
 Content-Type: application/json
 
 {
-"title":"The Hitchhiker's Guide to the Galaxy",
-"author": "Douglas Adams",
-"genre": "Science Fiction"
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "Historical Fiction"
 }
-
