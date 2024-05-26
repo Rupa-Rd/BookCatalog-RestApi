@@ -1,0 +1,15 @@
+###
+
+GET http://localhost:3000/bookStack
+
+
+###
+
+POST http://localhost:3000/bookStack
+Content-Type: application/json
+{
+"title":"The Hitchhiker's Guide to the Galaxy",
+"author": "Douglas Adams",
+"genre": "Science Fiction"
+}
+

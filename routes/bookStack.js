@@ -17,7 +17,12 @@ router.get('/', async (req,res) =>{
 })
 
 // Getting one book by id
-router.get('/:id', async (req,res) =>{
+router.get('/:id', getBookDetailes, (req,res) =>{
+    res.json(res.book.title)
+})
+
+// Creating a book
+router.post('/', async (req,res) =>{
     const books = new bookCatalog({
         title: req.body.title,
         author: req.body.author,
@@ -33,20 +38,49 @@ router.get('/:id', async (req,res) =>{
     }
 })
 
-// Creating a book
-// router.post('/', (req,res) =>{
-
-// }
-
 // Updating a book
-// router.patch('/', (req,res) =>{
+router.patch('/:id', getBookDetailes,async (req,res) =>{
+    if(req.body.title != null){
+        res.book.title = req.body.title
+    }
+        
+    try{
+        const updatedDetail = await res.book.save()
+        res.json(updatedDetail)
+    }catch(err){
+        res.status(400).json({message: err.message})
+    }
+})
 
-// }
-// Put updates all info where patch updates only 1 parameter
 // Deleting a book
 
-// router.delete('/', (req,res) =>{
+router.delete('/:id', getBookDetailes,async (req,res) =>{
+    try{
+        await res.book.deleteOne()
+        res.json({message: "Deleted successfully!"})
+    }catch(err){
+        res.status(500).json({message: err.message})
+    }
+        
+})
 
-// }
+async function getBookDetailes(req, res, next) {
+
+    let book;
+    
+    try{
+    book = await bookCatalog.findById(req.params.id)
+    if (book == null){
+    return res.status(404).json({message: 'Cannot find Book Details'})
+    }
+    }catch(err){
+    return res.status(500).json({message: err.message})
+    }
+    
+    res.book = book
+    next()
+    
+}
+    
 
 module.exports = router;
