@@ -5,8 +5,25 @@ GET http://localhost:3000/bookStack
 
 ###
 
+GET http://localhost:3000/bookStack/6651da44848bf6704861fd8e
+###
+
+PATCH http://localhost:3000/bookStack/6651da44848bf6704861fd8e
+Content-Type: application/json
+
+{
+    "title": "The Hitchhiker's Guide to the Galaxy (Updated Edition)"
+}
+
+###
+
+DELETE http://localhost:3000/bookStack/6651d86f1e9aac8bcfc2d9fb
+
+###
+
 POST http://localhost:3000/bookStack
 Content-Type: application/json
+
 {
 "title":"The Hitchhiker's Guide to the Galaxy",
 "author": "Douglas Adams",
